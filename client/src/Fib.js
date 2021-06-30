@@ -24,17 +24,29 @@ class Fib extends Component {
   };
 
   async fetchValues() {
-    const values = await axios.get('/api/values/current');
-    this.setState({ values: values.data });
+    try {
+      const values = await axios.get('/api/values/current');
+      if ((values.status = '200')) {
+        this.setState({ values: values.data });
+      }
+    } catch (e) {}
   }
 
   async fetchIndexes() {
-    const seenIndexes = await axios.get('/api/values/all');
-    this.setState({ seenIndexes: seenIndexes.data });
+    try {
+      const seenIndexes = await axios.get('/api/values/all');
+      if ((seenIndexes.status = '200')) {
+        this.setState({ seenIndexes: seenIndexes.data });
+      }
+    } catch (e) {}
   }
 
   renderSeenIndexes() {
-    return this.state.seenIndexes.map(({ number }) => number).join(', ');
+    if (this.state.seenIndexes && this.state.seenIndexes.length > 0) {
+      return this.state.seenIndexes.map(({ number }) => number).join(', ');
+    } else {
+      return '';
+    }
   }
 
   renderValues() {
