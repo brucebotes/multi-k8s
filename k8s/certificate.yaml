@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: twighorse-com-tls
+spec:
+  secretName: twighorse-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: twighorse.com
+  dnsNames:
+    - twighorse.com
+    - www.twighorse.com
