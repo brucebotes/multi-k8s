@@ -16,8 +16,9 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React with Docker and Docker Compose and Kubernetes
+            Learn React
           </a>
+          <h1>My Fib calculator running on Google cloud</h1>
           <Link to="/">Home</Link>
           <Link to="/otherpage">Other Page</Link>
         </header>
